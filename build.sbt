@@ -11,6 +11,10 @@ val logback = "ch.qos.logback" % "logback-classic" % "1.2.3"
 /** We use rxScala to receive and process events on domain objects */
 val rxScala = "io.reactivex" %% "rxscala" % "0.26.5"
 
+/** We use scalaJs to display state visualisations */
+val scalaJs = "org.scala-js" %% "scalajs-dom" % "0.9.3"
+
+
 /**
   * Common settings used by all sbt modules in this project.
   */
@@ -42,7 +46,8 @@ lazy val queueTimePredictorApp = Project(id = "queue-time-predictor-app", base =
   settings(
     name := "themepark-queue-time-predictor-app",
     libraryDependencies ++= Seq(
-      rxScala
+      rxScala,
+      scalaJs
     )
   ).dependsOn(queueTimePredictor)
 
@@ -53,3 +58,9 @@ lazy val queueTimePredictorApp = Project(id = "queue-time-predictor-app", base =
   */
 lazy val root = project.in(file(".")).aggregate(queueTimePredictor, queueTimePredictorApp)
 
+/**
+  * scalaJSUseMainModuleInitializer disabled as we treat the application as a library.
+  */
+enablePlugins(ScalaJSPlugin)
+
+scalaJSUseMainModuleInitializer := false

@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title></title>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
+    <script type="text/javascript" src="target/scala-2.12/queue-time-predictor-app-???.js"></script>
+    <script type="text/javascript" src="target/scala-2.12/queue-time-predictor-app-fastopt.js"></script>
+    <style type="text/css">
+
+        #canvas {
+            position: absolute;
+            top: 0;
+            width: 100%;
+            height: 100%;
+        }
+    </style>
+</head>
+<body>
+<div>
+    <canvas style="display: block" id="canvas" width="500" height="500"></canvas>
+</div>
+<script type="text/javascript">
+    window.onload = function() {
+        Attraction.main(document.getElementById('canvas'));
+    }
+</script>
+</body>
+</html>
