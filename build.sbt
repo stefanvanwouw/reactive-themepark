@@ -31,7 +31,10 @@ lazy val commonSettings = Seq(
 lazy val queueTimePredictor = Project(id = "queue-time-predictor", base = file("queue-time-predictor")).
   settings(commonSettings: _*).
   settings(
-    name := "themepark-queue-time-predictor"
+    name := "themepark-queue-time-predictor",
+    libraryDependencies ++= Seq(
+      "io.reactivex" %% "rxscala" % "0.26.5"
+    )
   )
 
 /**
